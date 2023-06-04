@@ -53,6 +53,7 @@ return [
             'corp_id' => env('WECHAT_CORP_ID'), // 企业 ID
             'corp_secret' => env('WECHAT_CORP_SECRET'), // 企业微信应用的凭证密钥
             'agent_id' => (int)env('WECHAT_AGENT_ID'), // 企业微信应用 ID
+            'user_id' => env('WECHAT_USER_ID'), // 企业微信用户ID
             'enable' => (int)env('WECHAT_ENABLE'), // 是否启用，默认不启用
             'not_enabled_tips' => env('WECHAT_CORP_ID') && env('WECHAT_CORP_SECRET') && env('WECHAT_AGENT_ID'), // 提醒未启用
             'class' => \Luolongfei\Libs\MessageServices\WeChat::class,
@@ -86,6 +87,17 @@ return [
             'not_enabled_tips' => env('BARK_KEY') && env('BARK_URL'), // 提醒未启用
             'class' => \Luolongfei\Libs\MessageServices\Bark::class,
             'name' => lang('100068'),
+        ],
+
+        /**
+         * Pushplus
+         */
+        'pushplus' => [
+            'pushplus_key' => env('PUSHPLUS_KEY'), // SendKey
+            'enable' => (int)env('PUSHPLUS_ENABLE'), // 是否启用，默认不启用
+            'not_enabled_tips' => (bool)env('PUSHPLUS_KEY'), // 提醒未启用
+            'class' => \Luolongfei\Libs\MessageServices\Pushplus::class,
+            'name' => lang('100136'),
         ],
     ],
     'custom_language' => env('CUSTOM_LANGUAGE', 'zh'),
